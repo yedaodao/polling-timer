@@ -39,6 +39,8 @@ describe('Util', function () {
         it('should runs without any unexpected results', function () {
             assert.equal(true, Util.isFalsy(false));
             assert.equal(false, Util.isFalsy(true));
+            assert.equal(true, Util.isFalsy(null));
+            assert.equal(true, Util.isFalsy(undefined));
         });
     });
 });
