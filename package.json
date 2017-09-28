@@ -2,12 +2,16 @@
   "name": "polling-timer",
   "version": "0.1.0",
   "description": "",
-  
   "repository": {
     "type": "git",
     "url": "https://github.com/yedaodao/polling-timer.git"
   },
-  
+  "scripts": {
+    "test": "mocha"
+  },
   "author": "yedaodao",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^3.5.3"
+  }
 }
