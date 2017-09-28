@@ -1,0 +1,13 @@
+{
+  "name": "polling-timer",
+  "version": "0.1.0",
+  "description": "",
+  
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yedaodao/polling-timer.git"
+  },
+  
+  "author": "yedaodao",
+  "license": "MIT"
+}
