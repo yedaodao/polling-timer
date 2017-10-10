@@ -39,6 +39,22 @@ describe('Timer', function () {
             });
             timer.start();
         });
+        it('test setTimeout & setInterval', function (done) {
+            this.timeout(20000);
+            var timer = new Timer(1000, 10000),
+                mark = 0;
+            timer.setInterval(2000);
+            timer.setTimeout(3000);
+            timer.setRunCallback(function () {
+                mark = (mark + 1) % 2;
+                return false;
+            });
+            timer.setTimeoutCallback(function () {
+                assert.equal(mark, 1);
+                done();
+            });
+            timer.start();
+        });
         it('should run without timeout', function (done) {
             this.timeout(20000);
             var runMark = false,
