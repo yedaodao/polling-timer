@@ -88,5 +88,46 @@ describe('Timer', function () {
             });
             timer.start();
         });
+        it('should runs with promise result', function (done) {
+            this.timeout(20000);
+            var timer = new Timer(1000, 10000),
+                count = 0;
+            timer.setRunCallback(function () {
+                return new Promise(function (resolve, reject) {
+                    setTimeout(function () {
+                        if (count === 0) {
+                            count++;
+                            resolve(false);
+                        } else {
+                            resolve(true);
+                        }
+                    }, 1000);
+                });
+            });
+            timer.setEndCallback(function () {
+                done();
+            });
+            timer.start();
+        });
+        it('should runs with promise error ', function (done) {
+            this.timeout(20000);
+            var timer = new Timer(1000, 10000),
+                count = 0;
+            timer.setRunCallback(function () {
+                return new Promise(function (resolve, reject) {
+                    setTimeout(function () {
+                        reject(new Error('promise error'));
+                    }, 1000);
+                });
+            });
+            timer.setEndCallback(function (err) {
+                if (err) {
+                    done();
+                } else {
+                    assert.fail('Catch function did not execute');
+                }
+            });
+            timer.start();
+        });
     });
 });
