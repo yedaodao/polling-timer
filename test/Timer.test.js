@@ -51,7 +51,6 @@ describe('Timer', function () {
             });
             timer.setTimeoutCallback(function () {
                 assert.equal(mark, 1);
-                done();
             });
             timer.setEndCallback(function () {
                 done();
