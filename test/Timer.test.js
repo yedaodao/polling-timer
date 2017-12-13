@@ -53,6 +53,9 @@ describe('Timer', function () {
                 assert.equal(mark, 1);
                 done();
             });
+            timer.setEndCallback(function () {
+                done();
+            });
             timer.start();
         });
         it('should run without timeout', function (done) {
